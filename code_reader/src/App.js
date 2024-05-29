@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Layout id="layout">
-        <Header hashPriority="hight" className="header">
+        <Header className="header">
           <NavHeader></NavHeader>
         </Header>
         <Content className="content">

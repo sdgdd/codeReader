@@ -3,7 +3,8 @@ import { Image, Flex, Space, Select, Input, Button } from "antd";
 import { NavLink } from "react-router-dom";
 import canghai from "../asset/img/canghai.png";
 import yisu from "../asset/img/yisu.png";
-import "../css/NavHeader.css";
+import styles from "../css/NavHeader.module.css";
+import LoginAvatar from "./LoginAvatar";
 export default function NavHeader() {
   const options = [
     {
@@ -28,16 +29,16 @@ export default function NavHeader() {
         <Image width={80} height={48} preview={false} src={yisu} />
       </div>
       <Flex gap={32} wrap className="link-choose">
-        <NavLink className="nav-link" to="/answer">
+        <NavLink className={styles.navLlink} to="/answer">
           问答
         </NavLink>
-        <NavLink className="nav-link" to="/books">
+        <NavLink className={styles.navLlink} to="/books">
           书籍
         </NavLink>
-        <NavLink className="nav-link" to="/faceQuestion">
+        <NavLink className={styles.navLlink} to="/faceQuestion">
           面试题
         </NavLink>
-        <NavLink className="nav-link" to="/videoTeach">
+        <NavLink className={styles.navLlink} to="/videoTeach">
           视频教程
         </NavLink>
       </Flex>
@@ -57,7 +58,7 @@ export default function NavHeader() {
         <Button type="primary">搜索</Button>
       </Space.Compact>
 
-      <Button type="primary">注册/登录</Button>
+      <LoginAvatar></LoginAvatar>
     </Flex>
   );
 }

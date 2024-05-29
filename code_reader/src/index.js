@@ -7,12 +7,16 @@ import zh_CN from "antd/locale/zh_CN";
 import "dayjs/locale/zh-cn";
 import { ConfigProvider } from "antd";
 import { BrowserRouter } from "react-router-dom";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ConfigProvider locale={zh_CN}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ConfigProvider>
+  <Provider store={store}>
+    <ConfigProvider locale={zh_CN}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ConfigProvider>
+  </Provider>
 );
