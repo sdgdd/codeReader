@@ -1,0 +1,17 @@
+.ant-radio-button-wrapper > span {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+.ant-radio-button-wrapper {
+    width: 50%;
+}
+
+.radio-group {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.login-button {
+    margin-right: 32px;
+}

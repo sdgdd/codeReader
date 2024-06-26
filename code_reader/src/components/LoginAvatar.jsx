@@ -3,7 +3,7 @@ import { Button, Avatar, Popover, List } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 
-export default function LoginAvatar() {
+export default function LoginAvatar({ setOpenModal }) {
   const user = useSelector((state) => state.user);
 
   const avatar = <Avatar size="large" icon={<UserOutlined />}></Avatar>;
@@ -23,7 +23,16 @@ export default function LoginAvatar() {
     </Popover>
   );
 
-  const notLogin = <Button type="primary">注册/登录</Button>;
+  const notLogin = (
+    <Button
+      type="primary"
+      onClick={() => {
+        setOpenModal(true);
+      }}
+    >
+      注册/登录
+    </Button>
+  );
 
   return <div>{user.isLogin ? hasLogin : notLogin}</div>;
 }
