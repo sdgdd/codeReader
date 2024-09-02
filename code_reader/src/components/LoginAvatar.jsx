@@ -1,17 +1,16 @@
 import React from "react";
 import { Button, Avatar, Popover, List } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { useSelector,useDispatch } from "react-redux";
-import {clearUserInfo} from '../redux/userSlice'
+import { useSelector } from "react-redux";
+import { logout } from "../untils/common";
 export default function LoginAvatar({ setOpenModal }) {
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch()
+ 
   const avatar = <Avatar size="large" icon={<UserOutlined />}></Avatar>;
 
   const handleClick = (item)=>{
     if(item === "退出登录"){
-      dispatch(clearUserInfo());
-      document.cookie = "authToken=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+      logout()
       return
     }
   }

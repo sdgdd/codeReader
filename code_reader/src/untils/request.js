@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {logout} from './common'
 
 // 创建一个 axios 实例
 const axiosInstance = axios.create({
@@ -26,6 +27,17 @@ axiosInstance.interceptors.request.use(
 // 响应拦截器
 axiosInstance.interceptors.response.use(
     (response) => {
+
+        // 通过loacalStorage保存token
+        const token = response.headers['authorization'];
+        if (token) {
+            localStorage.setItem('token', token);
+        }
+
+        if(response.data.code === 401){
+            logout();
+        }
+
         // 对响应数据进行处理
         return response.data; // 直接返回响应数据
     },

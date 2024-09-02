@@ -23,3 +23,7 @@ export function getQuestion(pagesize=50, pagenum=0){
 export function getcaptcha(){
     return request('get',`/api/captcha`)
 }
+
+export function userIsExist(userName){
+    return request('get',`/api/login/userIsExist?userName=${userName}`)
+}

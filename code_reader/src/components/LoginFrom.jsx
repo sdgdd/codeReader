@@ -1,11 +1,11 @@
 import React from "react";
 import { Modal, message } from "antd";
-import { Radio, Form, Input, Checkbox, Button, Flex } from "antd";
+import { Radio, Form, Input, Button, Flex } from "antd";
 import "../css/LoginFrom.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { initUserInfo } from "../redux/userSlice";
-import { longin, regist, getcaptcha } from "../api/loign";
+import { longin, regist, getcaptcha,userIsExist } from "../api/loign";
 
 export default function LoginFrom({ setOpenModal, isOpenModal }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -65,16 +65,33 @@ export default function LoginFrom({ setOpenModal, isOpenModal }) {
       <Form.Item
         label="账号"
         name="userName"
+        validateTrigger="onBlur"
         rules={[
           {
             required: true,
             message: "请输入账号!",
           },
+          {
+            validator: async (_, value) => {
+              if(!value){
+                return
+              }
+              const {data}=await userIsExist(value);
+              if (data) {
+                return Promise.reject(new Error("用户名已注册，请更换后再试"));
+              }
+            }
+          }
         ]}
       >
         <Input />
       </Form.Item>
-
+      <Form.Item
+        label="昵称"
+        name="name"
+      >
+        <Input />
+      </Form.Item>
       <Form.Item
         label="密码"
         name="password"
@@ -154,7 +171,6 @@ export default function LoginFrom({ setOpenModal, isOpenModal }) {
       >
         <Input />
       </Form.Item>
-
       <Form.Item
         label="登录密码"
         name="password"
