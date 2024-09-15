@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <ConfigProvider locale={zh_CN}>
-      <BrowserRouter>
+      <BrowserRouter basename="/blog">
         <App />
       </BrowserRouter>
     </ConfigProvider>
