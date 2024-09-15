@@ -3,6 +3,7 @@ import Answer from "../pages/Answer";
 import Books from "../pages/Books";
 import FaceQuestion from "../pages/FaceQuestion";
 import VideoTeach from "../pages/VideoTeach";
+import AddQuestion  from "../pages/AddQuestion";
 
 export default function HomeRouter() {
   return useRoutes([
@@ -26,5 +27,9 @@ export default function HomeRouter() {
       path: "/",
       element: <Navigate to="/answer"></Navigate>,
     },
+    {
+      path: "/addQuestion",
+      element: <AddQuestion ></AddQuestion>,
+    }
   ]);
 }

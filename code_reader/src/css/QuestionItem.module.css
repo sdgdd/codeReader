@@ -1,0 +1,30 @@
+.twoRowEllipsis{
+    height: 40px;
+    font-size: 18px;
+    line-height: 20px;      
+    font-weight: bold;         
+    width: 400px;             
+    word-wrap: break-word;    
+    overflow: hidden;         
+    text-overflow: ellipsis;  
+    display: -webkit-box;     
+    -webkit-line-clamp: 2;    
+    -webkit-box-orient: vertical;
+}
+
+.cardItem{
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.tag{
+    min-width: 72px;
+    text-align: center;
+    height: 24px;
+}
+
+.shallowText{
+    font-size: 18px;
+    color: #0c030387;
+}

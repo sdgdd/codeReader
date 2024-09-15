@@ -1,0 +1,10 @@
+.answer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 32px;
+    background: white;
+    margin-left: 16px;
+    width: calc(100% - 32px);
+}
+
+

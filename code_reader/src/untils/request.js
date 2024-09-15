@@ -3,7 +3,7 @@ import {logout} from './common'
 
 // 创建一个 axios 实例
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000', // 基础 URL，可以根据需要修改
+    baseURL: '/', // 基础 URL，可以根据需要修改
     timeout: 10000, // 请求超时时间
 });
 
@@ -75,6 +75,7 @@ axiosInstance.interceptors.response.use(
 
 // 封装的请求方法
 export const request = (method, url, data = {}, config = {}) => {
+
     return axiosInstance({
         method,
         url,

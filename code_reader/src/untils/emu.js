@@ -1,0 +1,1 @@
+export const tagColors = Object.freeze(["red","blue","green","purple","orange", "yellow","pink","cyan","gray","brown","pink"])
