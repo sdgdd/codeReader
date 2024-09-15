@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 import LoginFrom from "./components/LoginFrom";
 import { whoAmI } from "./api/loign";
 import { useDispatch } from "react-redux";
-import { initUserInfo } from "./redux/userSlice";
+import { initUserInfo ,} from "./redux/userSlice";
 import { useNavigate } from "react-router-dom";
+import {logout} from"./untils/common"
 const { Header, Footer, Content } = Layout;
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
       if (result.code === 200) {
         dispatch(initUserInfo({ urser: result.message.token }));
         setOpenModal(false);
+      }else {
+        logout()
       }
     });
   }, [dispatch, history]);
