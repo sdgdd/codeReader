@@ -12,13 +12,6 @@ export function regist(data){
     return request('post',`/api/login`,data)
 }
 
-export function addQuestion(data){
-    return request('post',`/api/questions`,data)
-}
-
-export function getQuestion(pagesize=50, pagenum=0){
-    return request('get',`/api/questions?pageSize=${pagesize}&pageNumber=${pagenum}`)
-}
 
 export function getcaptcha(){
     return request('get',`/api/captcha`)
