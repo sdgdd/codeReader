@@ -6,7 +6,7 @@ import style from '../css/QuestionItem.module.css'
 import dayjs from "dayjs";
 
 
-export default function QuesiontItem({data}) {
+export default function QuesiontItem({data,onTitleClick}) {
   const { tagMap } = useSelector((state) => state.type);
 
   const {answerCount, viewCount, title, tags, nickName, relaseTime} = data
@@ -21,7 +21,7 @@ export default function QuesiontItem({data}) {
           <div>浏览</div>
         </Flex>
         <Flex gap="small" vertical>
-          <Row className={style.twoRowEllipsis}>{title}</Row>
+          <Row className={style.twoRowEllipsis} onClick={()=>{onTitleClick(data)}}>{title}</Row>
           <Flex justify="space-between" align="center">
             <Tag className={style.tag} color={tagColors[tagMap[tags] % tagColors.length]}>{tags}</Tag>
             <Row className="question-info" align="center">

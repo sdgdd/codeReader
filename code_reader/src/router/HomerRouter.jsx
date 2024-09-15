@@ -4,6 +4,7 @@ import Books from "../pages/Books";
 import FaceQuestion from "../pages/FaceQuestion";
 import VideoTeach from "../pages/VideoTeach";
 import AddQuestion  from "../pages/AddQuestion";
+import QuestionDetail from "../pages/QuestionDetail";
 
 export default function HomeRouter() {
   return useRoutes([
@@ -30,6 +31,10 @@ export default function HomeRouter() {
     {
       path: "/addQuestion",
       element: <AddQuestion ></AddQuestion>,
+    },
+    {
+      path: "/questionDetail/:id",
+      element: <QuestionDetail></QuestionDetail>,
     }
   ]);
 }

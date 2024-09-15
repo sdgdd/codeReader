@@ -6,7 +6,7 @@ export function addQuestion(data){
 }
 
 export function getQuestion(pagesize=50, pagenum=1,tagId){
-    return request('get',`/api/questions?pageSize=${pagesize}&pageNumber=${pagenum}&tagId=${tagId}`)
+    return request('get',`/api/questions?pageSize=${pagesize}&pageNumber=${pagenum}&tagId=${tagId || ''}`)
 }
 
 
@@ -19,4 +19,8 @@ export function uploadImg(data){
         'Content-Type': 'multipart/form-data', 
         'Content-Disposition': `attachment; filename=${data.name}`}
     })
+}
+
+export function getQuestionDetail(id){ 
+    return request('get',`/api/questionsDetail/${id}`)
 }

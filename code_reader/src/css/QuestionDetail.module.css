@@ -1,0 +1,16 @@
+ table,
+ th,
+ td {
+   border: 1px solid black;
+   /* 设置1像素的黑色边框 */
+   border-collapse: collapse;
+   /* 合并边框，防止重复显示 */
+ }
+
+ th,
+ td {
+   padding: 10px;
+   /* 为单元格添加内边距 */
+   text-align: left;
+   /* 单元格内文本左对齐 */
+ }

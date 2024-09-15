@@ -13,28 +13,39 @@ export default function Answer() {
   const { tagMap } = useSelector((state) => state.type);
   const {isLogin} = useSelector((state) => state.user);
   const [tagId, setTagId] = useState();
+  const [page, setPage] = useState({pageNumber:1,pageSize:5});
 
   //初始化时调用
   useEffect(() => {
-    getQuestion(5,1,tagId).then((res) => {
+    getQuestion(5,1,tagId?.id).then((res) => {
       if (!res.data?.rows || res.data?.rows?.length === 0) {
         return
       }
       setQuestionList(res.data)
-      console.log(res)
     })
 
-  }, [tagMap])
+  }, [tagMap,tagId])
+
+  useEffect(() => {
+    getQuestion(page.pageSize, page.pageNumber,tagId?.id).then((res) => {
+      if (!res.data?.rows || res.data?.rows?.length === 0) {
+        return
+      }
+      setQuestionList(res.data)
+    })
+  },[page])
+
+  function handleDetail(data){
+    navigate(`/questionDetail/${data.id}`, {state: {id: data.id}})
+  }
 
 
   const handlePageChange = (page, pageSize) => {
-    getQuestion(pageSize, page,tagId).then((res) => {
-      if (!res.data?.rows || res.data?.rows?.length === 0) {
-        return
-      }
-      setQuestionList(res.data)
-    })
+    setPage({pageNumber:page,pageSize:pageSize})
   }
+
+
+
 
   const handleClick = () => {
     if(!isLogin){
@@ -54,7 +65,7 @@ export default function Answer() {
         <Col>
           {
            questionList?.rows?.map((item, index) => {
-              return (<QuesiontItem data={{answerCount:item.answerCount || index, viewCount:item.viewCount || index, title:item.title, tags:item.Tags || "js", nickName:item.nickName || "测试", createdAt:item.createdAt}}></QuesiontItem>)
+              return (<QuesiontItem onTitleClick={()=>{handleDetail(item)}} data={{answerCount:item.answerCount || index, viewCount:item.viewCount || index, title:item.title, tags:item.Tags, nickName:item.nickName, createdAt:item.createdAt}}></QuesiontItem>)
             })
           }
         </Col>
