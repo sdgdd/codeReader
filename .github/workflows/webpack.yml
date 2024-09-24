@@ -25,6 +25,7 @@ jobs:
     - name: cd target dir
       run: |
          cd code_reader
+         ls
 
     - name: Build
       run: |
