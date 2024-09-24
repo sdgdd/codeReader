@@ -25,10 +25,11 @@ jobs:
     - name: cd target dir
       run: |
          cd code_reader
-         ls
+         
 
     - name: Build
       run: |
+        ls
         npm install
         npx webpack
         npm run build
