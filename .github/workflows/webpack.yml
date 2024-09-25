@@ -35,4 +35,5 @@ jobs:
         port: 22
         source: "code_reader/build/*"
         target: ${{secrets.REMOTE_TARGET}}
+        strip_components: 1
     
