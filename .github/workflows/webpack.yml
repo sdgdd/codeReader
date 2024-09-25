@@ -33,6 +33,6 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_PASS }}
         port: 22
-        source: "code_reader/build/"
+        source: "build/"
         target: ${{secrets.REMOTE_TARGET}}
     
