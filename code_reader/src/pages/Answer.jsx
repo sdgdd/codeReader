@@ -33,6 +33,7 @@ export default function Answer() {
       }
       setQuestionList(res.data)
     })
+     // eslint-disable-next-line
   },[page])
 
   function handleDetail(data){

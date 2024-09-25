@@ -20,6 +20,7 @@ export default function TagList({ onSelect, title }) {
       return
     }
     dispatch(fetchTypes());
+  // eslint-disable-next-line
   }, [])
 
   return (
