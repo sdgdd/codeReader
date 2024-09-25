@@ -11,7 +11,7 @@ export default function MarkDownEditor({setEditorValue}) {
     return (
         <Editor
             ref={editorRef}
-            initialValue="hello react editor world!"
+            initialValue=""
             previewStyle="vertical"
             height="600px"
             initialEditType="markdown"
@@ -28,7 +28,8 @@ export default function MarkDownEditor({setEditorValue}) {
                             callback(null, "image");
                             return;
                         }
-                        callback(window.location.origin+ res.path, "image");
+                        // callback(window.location.origin+ res.path, "image");
+                        callback("http://localhost:3100"+res.path, "image");
                     })
 
                    

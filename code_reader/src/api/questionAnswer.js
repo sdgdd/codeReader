@@ -24,3 +24,12 @@ export function uploadImg(data){
 export function getQuestionDetail(id){ 
     return request('get',`/api/questionsDetail/${id}`)
 }
+
+export function addCommen(data){ 
+    return request('post',`/api/comment`,data)
+}
+
+export function getComment(id){ 
+    return request('get',`/api/comment?questionId=${id}`)
+}
+

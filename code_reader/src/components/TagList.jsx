@@ -30,7 +30,7 @@ export default function TagList({ onSelect, title }) {
       <div>
       <Tag style={{ cursor: "pointer",fontSize:"16px",padding:"8px 16px" ,marginRight:"16px"}} color={"black"}  onClick={() => { handleClick('全部') }}>全部</Tag>
         {typeList.map((item, index) => {
-          return <Tag key={index} style={{ cursor: "pointer",fontSize:"16px",padding:"8px 16px" ,marginRight:"16px"}} color={tagColors[item.id%tagColors.length]} checked={item.name == selectedTag.name} onClick={() => { handleClick(item) }}>{item.name}</Tag>
+          return <Tag key={index} style={{ cursor: "pointer",fontSize:"16px",padding:"8px 16px" ,marginRight:"16px"}} color={tagColors[item.id%tagColors.length]} checked={item.name === selectedTag.name} onClick={() => { handleClick(item) }}>{item.name}</Tag>
         })}
       </div>
 
