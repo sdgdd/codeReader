@@ -29,7 +29,7 @@ export default function MarkDownEditor({setEditorValue}) {
                             return;
                         }
                         // callback(window.location.origin+ res.path, "image");
-                        callback("http://localhost:3100"+res.path, "image");
+                        callback(window.location.origin+ +res.path, "image");
                     })
 
                    

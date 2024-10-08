@@ -126,7 +126,7 @@ export default function Answer() {
             }
           ]}
         >
-          <Editor setEditorValue={setEditorValue}></Editor>
+          <Editor setEditorValue={setEditorValue} initialEditType="wysiwyg"></Editor>
         </Form.Item>
 
         <Form.Item

@@ -3,10 +3,12 @@ import { Button, Avatar, Popover, List } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import { logout } from "../untils/common";
+// import GenerateAvatar from "./GrenerateAvatar";
 export default function LoginAvatar({ setOpenModal }) {
   const user = useSelector((state) => state.user);
  
   const avatar = <Avatar size="large" icon={<UserOutlined />}></Avatar>;
+  // const avatar = <GenerateAvatar></GenerateAvatar>
 
   const handleClick = (item)=>{
     if(item === "退出登录"){

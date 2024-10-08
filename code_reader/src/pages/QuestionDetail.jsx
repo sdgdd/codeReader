@@ -57,7 +57,7 @@ const QuestionDetail = () => {
       <Viewer initialValue={question.content}></Viewer>
       <Divider style={{  borderColor: '#7cb305' }} orientation="left">评论区</Divider>
       <div className={style.editor}>
-         <Editor setEditorValue={setEditorValue} />
+         <Editor setEditorValue={setEditorValue}  initialEditType="wysiwyg" />
          <Button style={{width:"100px",marginLeft:"auto",marginBottom:"16px"}} type="primary" onClick={addComment}>添加评论</Button>
       </div>
       <div>
