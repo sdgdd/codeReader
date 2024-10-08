@@ -24,7 +24,7 @@ export default function GenerateAvatar({ width=40  }) { // width 作为 props �
     // 根据传入的 width 来动态调整树的大小
     const treeHeight = width * 0.25; // 树的高度基于画布大小
     drawBranch(ctx, { x: 0, y: 0 }, treeHeight, 90, treeHeight * 0.16, 6, '#333'); // 使用动态比例
-  }, [width]);
+  });
 
   function drawBranch(ctx, startPoint, length, angle, branchWidth, depth, color) {
     if (length < 5 || depth <= 0) {
