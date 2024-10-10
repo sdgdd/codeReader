@@ -15,7 +15,7 @@ export function getTags(){
 }
 
 export function uploadImg(data){
-    return request('post',`/api/img`,{image:data},{headers: {
+    return request('post',`/img`,{image:data},{headers: {
         'Content-Type': 'multipart/form-data', 
         'Content-Disposition': `attachment; filename=${data.name}`}
     })
