@@ -26,6 +26,7 @@ export default function LoginFrom({ setOpenModal, isOpenModal }) {
       dispatch(initUserInfo({ urser: result.message.token }));
       setOpenModal(false);
     } else {
+      fetchCapcha();
       message.warning(result.message);
     }
   };

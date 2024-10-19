@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Flex, message, Pagination ,Spin} from "antd";
+import { Button, Col, Flex, message, Pagination ,Spin,Empty } from "antd";
 import { getQuestion } from "../api/questionAnswer";
 import { useNavigate } from "react-router-dom";
 import style from "../css/Answer.module.css";
@@ -20,7 +20,7 @@ export default function Answer() {
     setLoading(true);
     const res = await getQuestion(page.pageSize, page.pageNumber, tagId?.id)
     setLoading(false);
-    if (!res.data?.rows || res.data?.rows?.length === 0) {
+    if (!res.data?.rows) {
       return
     }
     setQuestionList(res.data)
@@ -54,18 +54,25 @@ export default function Answer() {
     navigate('/addQuestion')
   }
 
+  const content = () => {
+    debugger
+    if(Number(questionList?.rows?.length) === 0) {
+      return <Empty description="暂无数据" />
+    }else {
+      return questionList?.rows?.map((item, index) => {
+        return (<QuesiontItem key={item.id} onTitleClick={() => { handleDetail(item) }} data={{ answerCount: item.answerCount || index, viewCount: item.viewCount || index, title: item.title, tags: item.Tags, nickName: item.nickName, createdAt: item.createdAt }}></QuesiontItem>)
+      })
+    }
+  }
+
   return (
     <div className={style.answer}>
-      <TagList title="问答列表" onSelect={handleTagChange}></TagList>
+      <TagList title="问答列表" onSelect={handleTagChange} ></TagList>
       <Flex gap="64px">
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1,marginTop: "24px" }}>
           <Spin spinning={loading}>
             <Col>
-              {
-                questionList?.rows?.map((item, index) => {
-                  return (<QuesiontItem key={item.id} onTitleClick={() => { handleDetail(item) }} data={{ answerCount: item.answerCount || index, viewCount: item.viewCount || index, title: item.title, tags: item.Tags, nickName: item.nickName, createdAt: item.createdAt }}></QuesiontItem>)
-                })
-              }
+              {content() }
             </Col>
           </Spin>
 
