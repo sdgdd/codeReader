@@ -5,7 +5,7 @@ import canghai from "../asset/img/canghai.png";
 import yisu from "../asset/img/yisu.png";
 import styles from "../css/NavHeader.module.css";
 import LoginAvatar from "./LoginAvatar";
-export default function NavHeader({ setOpenModal }) {
+export default function NavHeader() {
   const options = [
     {
       value: "zhejiang",
@@ -58,7 +58,7 @@ export default function NavHeader({ setOpenModal }) {
         <Button type="primary">搜索</Button>
       </Space.Compact>
 
-      <LoginAvatar setOpenModal={setOpenModal}></LoginAvatar>
+      <LoginAvatar></LoginAvatar>
     </Flex>
   );
 }

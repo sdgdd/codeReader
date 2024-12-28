@@ -33,3 +33,9 @@ export function getComment(id){
     return request('get',`/api/comment?questionId=${id}`)
 }
 
+export function questionGiveLike(data){
+    return request('post',`/api/questionGiveLike`,data)
+}
+export function questionGiveDislike(data){
+    return request('post',`/api/questionGiveDislike`,data)
+}

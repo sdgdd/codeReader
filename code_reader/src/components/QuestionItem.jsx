@@ -4,21 +4,38 @@ import { tagColors } from "../untils/emu"
 import { useSelector } from "react-redux";
 import style from '../css/QuestionItem.module.css'
 import dayjs from "dayjs";
+import MyIcon from "../components/MyIcon";
+import { questionGiveLike, questionGiveDislike} from "../api/questionAnswer";
 
-
-export default function QuesiontItem({data,onTitleClick}) {
+export default function QuesiontItem({data,onTitleClick,upDateContent}) {
   const { tagMap } = useSelector((state) => state.type);
+  const [likesCount,setLikesCount] = React.useState(data.likesCount)
+  const [isGveLike,setIsGiveLike]=React.useState(false)
 
-  const {answerCount, viewCount, title, tags, nickName, relaseTime} = data
+  const handleGiveLikeClick = async () => {
+      const fn = isGveLike ? questionGiveDislike : questionGiveLike
+      const res= await fn({id:data.id});
+      if(res?.code !==200){
+          return;
+      }
+      setIsGiveLike(!isGveLike)
+      setLikesCount(isGveLike ? likesCount-1 : likesCount+1)
+  }
+
+  const {answerCount, viewsCount, title, tags, nickName, relaseTime} = data
     return(
-      <Flex gap="64px" justify="center" className={style.cardItem}>
+      <Flex gap="32px" justify="center" className={style.cardItem}>
+          <Flex vertical gap="small" align="center" justify="center"  className={style.shallowText}>
+              <Flex gap="small" >{likesCount}</Flex>
+              <MyIcon onClick={handleGiveLikeClick} name={isGveLike?"giveLike":"iconfontdianzan"} hoverColor="#1296db" size="20px"/>
+          </Flex>
         <Flex vertical gap="small" align="center" justify="center"  className={style.shallowText}>
           <div>{answerCount}</div>
-          <div>回答</div>
+            <MyIcon name="huida" size="20px"/>
         </Flex>
         <Flex gap="small" vertical align="center" justify="center"  className={style.shallowText}>
-          <div>{viewCount}</div>
-          <div>浏览</div>
+          <div>{viewsCount}</div>
+            <MyIcon name="liulanliang" size="20px"/>
         </Flex>
         <Flex gap="small" vertical>
           <Row className={style.twoRowEllipsis} onClick={()=>{onTitleClick(data)}}>{title}</Row>

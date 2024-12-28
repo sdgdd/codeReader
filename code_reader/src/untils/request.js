@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {logout} from './common'
+import {createLonginDialog} from "./fnLoing"
 
 // 创建一个 axios 实例
 const axiosInstance = axios.create({
@@ -36,6 +37,7 @@ axiosInstance.interceptors.response.use(
 
         if(response.data.code === 401){
             logout();
+            createLonginDialog();
         }
 
         // 对响应数据进行处理

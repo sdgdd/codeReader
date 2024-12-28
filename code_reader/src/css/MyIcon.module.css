@@ -1,0 +1,7 @@
+.give-like {
+    color:grey;
+}
+
+.give-like:hover{
+    color: rgb( 17, 113, 238);
+}
