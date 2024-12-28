@@ -2,18 +2,17 @@ import "./App.css";
 import {Layout} from "antd";
 import NavHeader from "./components/NavHeader";
 import HomeRouter from "./router/HomerRouter";
-import {useState, useEffect} from "react";
-import LoginFrom from "./components/LoginFrom";
+import { useEffect} from "react";
 import {whoAmI} from "./api/loign";
 import {useDispatch} from "react-redux";
 import {initUserInfo,} from "./redux/userSlice";
 import {useNavigate} from "react-router-dom";
 import {logout} from "./untils/common"
 
-const {Header, Footer, Content} = Layout;
+
+const {Header, Content} = Layout;
 
 function App() {
-    const [isOpenModal, setOpenModal] = useState(false);
 
     const history = useNavigate();
     const dispatch = useDispatch();
@@ -21,7 +20,6 @@ function App() {
         whoAmI().then((result) => {
             if (result.code === 200) {
                 dispatch(initUserInfo({urser: result.message.token}));
-                setOpenModal(false);
             } else {
                 logout()
             }
