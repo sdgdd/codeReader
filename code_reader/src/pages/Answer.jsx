@@ -55,12 +55,11 @@ export default function Answer() {
   }
 
   const content = () => {
-    debugger
     if(Number(questionList?.rows?.length) === 0) {
       return <Empty description="暂无数据" />
     }else {
       return questionList?.rows?.map((item, index) => {
-        return (<QuesiontItem key={item.id} onTitleClick={() => { handleDetail(item) }} data={{ answerCount: item.answerCount || index, viewCount: item.viewCount || index, title: item.title, tags: item.Tags, nickName: item.nickName, createdAt: item.createdAt }}></QuesiontItem>)
+        return (<QuesiontItem upDateContent={()=> fecthhData(page, tagId)} key={item.id} onTitleClick={() => { handleDetail(item) }} data={{answerCount: item.answerCount || index, viewsCount: item.viewsCount || index, title: item.title, tags: item.Tags, nickName: item.nickName, createdAt: item.createdAt ,...item}}></QuesiontItem>)
       })
     }
   }

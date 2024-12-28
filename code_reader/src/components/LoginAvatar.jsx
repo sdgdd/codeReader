@@ -3,8 +3,9 @@ import { Button, Avatar, Popover, List } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import { logout } from "../untils/common";
+import {createLonginDialog} from "../untils/fnLoing"
 // import GenerateAvatar from "./GrenerateAvatar";
-export default function LoginAvatar({ setOpenModal }) {
+export default function LoginAvatar() {
   const user = useSelector((state) => state.user);
  
   const avatar = <Avatar size="large" icon={<UserOutlined />}></Avatar>;
@@ -36,7 +37,7 @@ export default function LoginAvatar({ setOpenModal }) {
     <Button
       type="primary"
       onClick={() => {
-        setOpenModal(true);
+        createLonginDialog();
       }}
     >
       注册/登录
