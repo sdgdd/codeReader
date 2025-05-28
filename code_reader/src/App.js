@@ -2,7 +2,7 @@ import "./App.css";
 import {Layout} from "antd";
 import NavHeader from "./components/NavHeader";
 import HomeRouter from "./router/HomerRouter";
-import { useEffect} from "react";
+import {useEffect} from "react";
 import {whoAmI} from "./api/loign";
 import {useDispatch} from "react-redux";
 import {initUserInfo,} from "./redux/userSlice";
@@ -32,9 +32,7 @@ function App() {
             </div>
             <div className="App">
                 <Layout id="layout">
-                    <Header className="header">
-                        <NavHeader></NavHeader>
-                    </Header>
+                    <NavHeader></NavHeader>
                     <Content className="content">
                         <HomeRouter></HomeRouter>
                     </Content>

@@ -65,28 +65,34 @@ export default function Answer() {
   }
 
   return (
-    <div className={style.answer}>
-      <TagList title="问答列表" onSelect={handleTagChange} ></TagList>
-      <Flex gap="64px">
-        <div style={{ flex: 1,marginTop: "24px" }}>
-          <Spin spinning={loading}>
-            <Col>
-              {content() }
-            </Col>
-          </Spin>
+      <div className={style.answer}>
+          <section className={style.categorHeader}>
+              <h1>欢迎来到我的个人博客</h1>
+              <p>这里记录我的思考、学习和生活，分享有价值的内容和经验。</p>
+          </section>
+          <TagList title="问答列表" onSelect={handleTagChange}></TagList>
+          <Flex gap="64px">
+              <div style={{flex: 1, marginTop: "24px"}}>
+                  <Spin spinning={loading}>
+                      <Col>
+                          {content()}
+                      </Col>
+                  </Spin>
 
-          <div>
-            <Pagination pageSizeOptions={[5, 10, 20]} defaultPageSize={"5"} showQuickJumper={true} showSizeChanger defaultCurrent={questionList.pageNumber} total={questionList.count} onChange={handlePageChange} />
-          </div>
+                  <div>
+                      <Pagination pageSizeOptions={[5, 10, 20]} defaultPageSize={"5"} showQuickJumper={true}
+                                  showSizeChanger defaultCurrent={questionList.pageNumber} total={questionList.count}
+                                  onChange={handlePageChange}/>
+                  </div>
 
-        </div>
-        <div>
-          <Button type="primary" style={{ width: "300px" }} onClick={handleClick}>我要提问</Button>
-          <div>
-            推荐内容
-          </div>
-        </div>
-      </Flex>
-    </div>
+              </div>
+              <div>
+                  <Button type="primary" style={{width: "300px"}} onClick={handleClick}>我要提问</Button>
+                  <div>
+                      推荐内容
+                  </div>
+              </div>
+          </Flex>
+      </div>
   )
 }

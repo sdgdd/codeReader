@@ -1,5 +1,98 @@
-.tagListTitle {
-    font-size: 20px;
-    font-weight: 600;
-    margin-right: 64px;
+:root {
+    --primary-color: #4a89dc;
+    --secondary-color: #5d9cec;
+    --text-color: #333;
+    --light-text: #777;
+    --background: #f9f9f9;
+    --card-bg: #fff;
+    --border-color: #eaeaea;
+    --header-height: 60px;
+    --ui-border: #ddd;
+    --ui-label: #555;
+}
+
+/* 筛选区域 */
+.filterSection {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* 搜索框 */
+.searchBox {
+    margin-bottom: 20px;
+}
+
+.searchBox form {
+    display: flex;
+    gap: 10px;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 137, 220, 0.2);
+}
+
+.searchButton {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+    background-color: var(--secondary-color);
+}
+
+/* 标签云 */
+.tagCloud {
+    margin-top: 20px;
+}
+
+.tagCloud h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background-color: #e0e0e0;
+}
+
+.tag.active {
+    background-color: var(--primary-color);
+    color: white;
 }
